@@ -109,3 +109,17 @@ button.delete:hover, button.extend:hover {
     padding: 20px;
     display: none; /* Спочатку приховати контейнер */
 }
+
+
+/* Адаптивні стилі для кнопок дій на малих екранах */
+@media screen and (max-width: 800px) {
+    .action-buttons {
+        flex-direction: column; /* Розташовувати кнопки вертикально */
+    }
+
+    button.delete,
+    button.extend {
+        width: 100%; /* Розтягнути кнопки на всю ширину */
+        margin-top: 5px; /* Додати міжрядковий відступ */
+    }
+}
