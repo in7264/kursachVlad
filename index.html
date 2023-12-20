@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-    #map {
-      height: 100%;
-      width: 100%;
-    }
-  </style>
-  <title>Маршрут</title>
+    <!-- Мета-теги для налаштувань документа -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок вкладки браузера -->
+    <title>Інвентар програмного забезпечення</title>
+    <!-- Підключення стилів і скрипту -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-  <div id="map"></div>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
-  <script src="app.js"></script>
+
+  <!-- Форма для додавання програмного забезпечення -->
+  <div id="software-form">
+    <h2>Додати програмне забезпечення</h2>
+    <form id="add-software-form">
+        <label for="software-name">Назва програми:</label>
+        <input type="text" id="software-name" required>
+
+        <label for="software-key">Ліцензійний ключ:</label>
+        <input type="text" id="software-key" required>
+
+        <label for="expiry-date">Дата закінчення ліцензії:</label>
+        <input type="datetime-local" id="expiry-date" required>
+
+        <button type="button" onclick="addSoftware()">Додати програмне забезпечення</button>
+    </form>
+  </div>
+
+  <!-- Список програмного забезпечення -->
+  <div id="software-list">
+    <h2>Список програм</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Назва програми</th>
+                <th>Ліцензійний ключ</th>
+                <th>Дата закінчення ліцензії</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody id="software-table-body"></tbody>
+    </table>
+
+    <!-- Контейнер для подовження ліцензії -->
+    <div id="extend-container"></div>
+  </div>
+
+  <!-- Скрипт для виклику функції displaySoftwareList при завантаженні сторінки -->
+  <script>
+    window.onload = function () {
+        displaySoftwareList();
+        checkExpiredLicenses();
+    };
+  </script>
 </body>
 </html>

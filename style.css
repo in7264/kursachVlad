@@ -1,0 +1,111 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#software-form, #software-list {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+#software-form h2, #software-list h2 {
+    color: #333;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* Виправити розміщення таблиці */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+    word-wrap: break-word; /* Дозволити перенос довгих слів на наступний рядок */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+button.delete, button.extend {
+    padding: 8px;
+    cursor: pointer;
+}
+
+button.delete {
+    background-color: #ff5252;
+    color: #fff;
+}
+
+button.extend {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+button.delete:hover, button.extend:hover {
+    opacity: 0.8;
+}
+
+#extend-container {
+    margin-top: 10px;
+}
+
+#software-list {
+    position: relative;
+    max-width: 800px; /* Встановити максимальну ширину контейнера */
+    overflow: auto; /* Додати прокрутку за необхідності */
+}
+
+#extend-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none; /* Спочатку приховати контейнер */
+}
